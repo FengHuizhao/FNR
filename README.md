@@ -28,7 +28,7 @@ FNR/
 Edit `Compare_config.txt` to customize the system parameters.
 
 | Parameter                   | Description                            |
-| :-------------------------- | -------------------------------------- |
+| --------------------------- | -------------------------------------- |
 | DATA_BLOCK_NUM_PER_STRIPE   | Number of data blocks per stripe (k)   |
 | PARITY_BLOCK_NUM_PER_STRIPE | Number of parity blocks per stripe (m) |
 | STRIPE_NUM                  | Number of stripes                      |
