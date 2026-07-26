@@ -8,6 +8,7 @@ Reed-Solomon (RS) Code is extensively deployed in large-scale distributed storag
 
 ## File Structure
 
+```
 FNR/
 ├── Compare.h                              # Header file
 ├── Compare_All.c                          # Main program entry
@@ -18,6 +19,7 @@ FNR/
 ├── LICENSE                                # Build script
 ├── Makefile                               # Open-source license file
 └── README.md                              # Project documentation
+```
 
 ## Configuration
 
