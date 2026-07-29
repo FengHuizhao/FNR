@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra -std=c99 -O2
 LDLIBS = -lm
 
 TARGET = Compare_ALL
-SRCS = Compare_ALL.c
+SRCS = src/Compare_ALL.c
 
 all: $(TARGET)
 

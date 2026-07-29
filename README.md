@@ -10,22 +10,28 @@ Reed-Solomon (RS) Code is extensively deployed in large-scale distributed storag
 
 ```
 FNR/
-├── Compare.h                              # Header file
-├── Compare_All.c                          # Main program entry
-├── Compare_Func.c                         # Core implementation
-├── Compare_config.txt                     # Configuration file for parameters
-├── Fixed_RackTransfer-RACK_NUM.txt        # Inter-rack transmission costs for fixed mode
-├── Fluctuate_RackTransfer-RACK_NUM.txt    # Inter-rack transmission cost and probability distributions for fluctuating mode
-├── LICENSE                                # Build script
-├── Makefile                               # Open-source license file
-└── README.md                              # Project documentation
+├── input/
+│   ├── Compare_config.txt                    # Configuration file for parameters
+│   ├── Fixed_RackTransfer-RACK_NUM.txt       # Inter-rack transmission costs for fixed mode
+│   └── Fluctuate_RackTransfer-RACK_NUM.txt   # Inter-rack transmission cost and probability distributions for fluctuating mode
+├── output/
+│   ├── Compare_Results_exp.txt               # Comparison of Total Repair Cost for RR, AZ, CTP, and FNR-Exp
+│   ├── Compare_Results.txt                   # Complete Comparison of Total Repair Cost for RR, AZ, CTP, and FNR
+│   └── MT_Results.txt                        # Comparison of MT for RR, AZ, CTP, and FNR
+├── src/
+│   ├── Compare.h                             # Header file
+│   ├── Compare_All.c                         # Main program entry
+│   └── Compare_Func.c                        # Core implementation
+├── LICENSE                                   # Build script
+├── Makefile                                  # Open-source license file
+└── README.md                                 # Project documentation
 ```
 
 ## Configuration
 
 ### System Parameters
 
-Edit `Compare_config.txt` to customize the system parameters.
+Edit `input/Compare_config.txt` to customize the system parameters.
 
 | Parameter                   | Description                            |
 | --------------------------- | -------------------------------------- |
@@ -39,11 +45,11 @@ Edit `Compare_config.txt` to customize the system parameters.
 
 Three rack-scale configurations (5 / 20 / 100 racks) are provided in two categories:
 
-1. **Fixed-cost files** (`Fixed_RackTransfer-RACK_NUM.txt`)
+1. **Fixed-cost files** (`input/Fixed_RackTransfer-RACK_NUM.txt`)
 
    Each line follows the format `fromRack toRack cost`, representing the deterministic transmission cost between two racks.
 
-2. **Fluctuating-cost files** (`Fluctuate_RackTransfer-RACK_NUM.txt`)
+2. **Fluctuating-cost files** (`input/Fluctuate_RackTransfer-RACK_NUM.txt`)
 
    The header line follows `fromRack-toRack count:`, followed by lines in `[cost-prob]` format. Each rack pair has `count` possible transmission costs with corresponding occurrence probabilities, simulating network bandwidth fluctuation.
 

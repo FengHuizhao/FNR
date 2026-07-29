@@ -25,7 +25,7 @@ int **FixedRackTransfer = NULL;
 int main(){
     printf("\n\x1b[32m------------------------------- READ CONFIG -------------------------------\x1b[0m\n");
 
-    read_config("Compare_config.txt");
+    read_config("input/Compare_config.txt");
 
     printf("\n\x1b[32m------------------------ INITIALIZE REPAIR SOLUTION ------------------------\x1b[0m\n");
 
@@ -87,7 +87,7 @@ int main(){
         }
     }
 
-    read_fixed_rack_transfer("Fixed_RackTransfer-20.txt");
+    read_fixed_rack_transfer("input/Fixed_RackTransfer-20.txt");
     printf("\x1b[34mfixed transmission cost between racks\x1b[0m\n");
     for(int i = 0; i < RACK_NUM; ++i){
         for(int j = 0; j < RACK_NUM; ++j){
@@ -97,7 +97,7 @@ int main(){
         }
     }
 
-    read_fluctuate_rack_transfer("Fluctuate_RackTransfer-20.txt");
+    read_fluctuate_rack_transfer("input/Fluctuate_RackTransfer-20.txt");
     printf("\n\x1b[34mfluctuate transmission cost and prob between racks\x1b[0m\n");
     for(int i = 0; i < RACK_NUM; ++i){
         for(int j = 0; j < RACK_NUM; ++j){
@@ -307,7 +307,7 @@ int main(){
     compute_TuTd_fluctuate(fluctuateSolutions);
     MAX_RACK_TIME_FLUCTUATE = find_max_rack_time_fluctuate();
     printf("  fluctuate random MT = %f\n", MAX_RACK_TIME_FLUCTUATE);
-    // print_MT_to_file("MT_Results.txt", "Random-FIXED", MAX_RACK_TIME_FIXED, "Random-FLUCTUATE", MAX_RACK_TIME_FLUCTUATE);
+    // print_MT_to_file("output/MT_Results.txt", "Random-FIXED", MAX_RACK_TIME_FIXED, "Random-FLUCTUATE", MAX_RACK_TIME_FLUCTUATE);
     
     reset_fluctuate_links_without_print(fluctuateSolutions);
     TOTAL_REPAIR_LINK_NUM_FIXED = TOTAL_REPAIR_LINK_NUM_FLUCTUATE;
@@ -467,7 +467,7 @@ int main(){
     compute_TuTd_fluctuate(fluctuateSolutions);
     MAX_RACK_TIME_FLUCTUATE = find_max_rack_time_fluctuate();
     printf("  fluctuate AZ MT = %f\n", MAX_RACK_TIME_FLUCTUATE);
-    // print_MT_to_file("MT_Results.txt", "AZ-FIXED", MAX_RACK_TIME_FIXED, "AZ-FLUCTUATE", MAX_RACK_TIME_FLUCTUATE);
+    // print_MT_to_file("output/MT_Results.txt", "AZ-FIXED", MAX_RACK_TIME_FIXED, "AZ-FLUCTUATE", MAX_RACK_TIME_FLUCTUATE);
 
     printf("\n\x1b[34mAZ scheme repair links\x1b[0m\n");
     printf("\x1b[30mFIXED:\x1b[0m\n");
@@ -711,8 +711,8 @@ int main(){
     printf("\n\x1b[34mcompute MT\x1b[0m\n");
     printf("  \x1b[30mFLUCTUATE:\x1b[0m\n");
     printf("  fluctuate CTP MT = %f\n", MAX_RACK_TIME_FLUCTUATE);
-    // print_MT_to_file("MT_Results.txt", "CTP-FIXED", MAX_RACK_TIME_FIXED, "CTP-FLUCTUATE", MAX_RACK_TIME_FLUCTUATE);
-    // print_empty_line_to_file("MT_Results.txt");
+    // print_MT_to_file("output/MT_Results.txt", "CTP-FIXED", MAX_RACK_TIME_FIXED, "CTP-FLUCTUATE", MAX_RACK_TIME_FLUCTUATE);
+    // print_empty_line_to_file("output/MT_Results.txt");
 
     printf("\n\x1b[34mCTP scheme repair links\x1b[0m\n");
     printf("\x1b[30mFIXED:\x1b[0m\n");
@@ -782,8 +782,8 @@ int main(){
     print_expected_highest_scheme(CTPResults, CTPResultCount);
     int CTP_maxIndex = expected_highest_cost_index(CTPResults, CTPResultCount);
     printf("  CTP Scheme Expected Highest Cost: %d\n", CTPResults[CTP_maxIndex].totalTime);
-    // print_exp_results_to_file("Compare_Results_exp.txt", RandomTotalRepairCost, RandomResults, RandomResultCount, AZTotalRepairCost, AZResults, AZResultCount, CTPTotalRepairCost, CTPResults, CTPResultCount);
-    // print_results_to_file("Compare_Results.txt", RandomTotalRepairCost, RandomResults, RandomResultCount, AZTotalRepairCost, AZResults, AZResultCount, CTPTotalRepairCost, CTPResults, CTPResultCount);
+    // print_exp_results_to_file("output/Compare_Results_exp.txt", RandomTotalRepairCost, RandomResults, RandomResultCount, AZTotalRepairCost, AZResults, AZResultCount, CTPTotalRepairCost, CTPResults, CTPResultCount);
+    // print_results_to_file("output/Compare_Results.txt", RandomTotalRepairCost, RandomResults, RandomResultCount, AZTotalRepairCost, AZResults, AZResultCount, CTPTotalRepairCost, CTPResults, CTPResultCount);
 
     for(int i = 0; i < RACK_NUM; ++i){
         for(int j = 0; j < RACK_NUM; ++j){
